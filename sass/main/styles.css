@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle, rgb(255, 255, 255) 22%, rgb(194, 226, 242) 51%);
+}
+
+.board {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border: 1px solid rgb(23, 52, 98);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+  border-bottom: none;
+}
+
+.cell:nth-child(3n+1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n+3) {
+  border-right: none;
+}
+
+.cell.cross,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+.cell.cross::before,
+.cell.cross::after {
+  background-color: rgb(23, 52, 98);
+}
+
+.board.cross .cell:not(.cross):not(.circle):hover::before,
+.board.cross .cell:not(.cross):not(.circle):hover::after,
+.cell.cross::before,
+.cell.cross::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 80px;
+}
+
+.board.cross .cell:not(.cross):not(.circle):hover::before,
+.cell.cross::before {
+  transform: rotate(45deg);
+}
+
+.board.cross .cell:not(.cross):not(.circle):hover::after,
+.cell.cross::after {
+  transform: rotate(-45deg);
+}
+
+.board.cross .cell:not(.cross):not(.circle):hover::before,
+.board.cross .cell:not(.cross):not(.circle):hover::after {
+  background-color: rgba(23, 52, 98, 0.2);
+}
+
+.board.circle .cell:not(.cross):not(.circle):hover::before,
+.board.circle .cell:not(.cross):not(.circle):hover::after,
+.cell.circle::before,
+.cell.circle::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.board.circle .cell:not(.cross):not(.circle):hover::before,
+.cell.circle::before {
+  width: 75px;
+  height: 75px;
+}
+
+.cell.circle::before {
+  background-color: rgb(23, 52, 98);
+}
+
+.board.circle .cell:not(.cross):not(.circle):hover::after,
+.cell.circle::after {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+}
+
+.board.circle .cell:not(.cross):not(.circle):hover::before {
+  background-color: rgba(23, 52, 98, 0.2);
+}
+
+.winner-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(23, 52, 98, 0.95);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #c2e2f2;
+  font-size: 5rem;
+}
+
+.winner-message button {
+  font-size: 3rem;
+  color: rgb(23, 52, 98);
+  background-color: #c2e2f2;
+  border: 1px solid rgb(23, 52, 98);
+  margin: 0.5em;
+  padding: 0.25em 0.5em;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.winner-message button:hover {
+  background-color: rgb(23, 52, 98);
+  color: #c2e2f2;
+  cursor: pointer;
+}
+
+.winner-message.show {
+  display: flex;
+}/*# sourceMappingURL=styles.css.map */

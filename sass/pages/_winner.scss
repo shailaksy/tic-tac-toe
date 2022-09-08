@@ -1,0 +1,35 @@
+.winner-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $dark-blue-sheer1;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $light-blue-color;
+    font-size: 5rem;
+}
+
+.winner-message button {
+    font-size: 3rem;
+    color: $dark-blue-color;
+    background-color: $light-blue-color;
+    border: 1px solid $dark-blue-color;
+    margin: .5em;
+    padding: .25em .5em;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.winner-message button:hover {
+    background-color: $dark-blue-color;
+    color: $light-blue-color;
+    cursor: pointer;
+}
+
+.winner-message.show {
+    display: flex;
+}

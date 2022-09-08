@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-stack;
+}
+
+body {
+    background: radial-gradient(circle, rgba(255,255,255,1) 22%, rgba(194,226,242,1) 51%);
+}

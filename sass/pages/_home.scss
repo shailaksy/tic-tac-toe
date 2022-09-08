@@ -1,0 +1,111 @@
+.board {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: 1px solid $dark-blue-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+} 
+
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+    border-bottom: none;
+} 
+
+.cell:nth-child(3n+1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n+3) {
+    border-right: none;
+}
+
+/// CROSS
+
+.cell.cross,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+.cell.cross::before,
+.cell.cross::after {
+    background-color: $dark-blue-color;
+}
+
+.board.cross .cell:not(.cross):not(.circle):hover::before,
+.board.cross .cell:not(.cross):not(.circle):hover::after,
+.cell.cross::before,
+.cell.cross::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 80px;
+}
+
+.board.cross .cell:not(.cross):not(.circle):hover::before,
+.cell.cross::before {
+    transform: rotate(45deg);
+}
+
+.board.cross .cell:not(.cross):not(.circle):hover::after,
+.cell.cross::after {
+    transform: rotate(-45deg);
+}
+
+.board.cross .cell:not(.cross):not(.circle):hover::before,
+.board.cross .cell:not(.cross):not(.circle):hover::after {
+    background-color: $dark-blue-sheer2;
+}
+
+/// CIRCLE
+
+.board.circle .cell:not(.cross):not(.circle):hover::before,
+.board.circle .cell:not(.cross):not(.circle):hover::after, 
+.cell.circle::before,
+.cell.circle::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.board.circle .cell:not(.cross):not(.circle):hover::before,
+.cell.circle::before {
+    width: 75px;
+    height: 75px;
+}
+
+.cell.circle::before {
+    background-color: $dark-blue-color;
+}
+
+.board.circle .cell:not(.cross):not(.circle):hover::after,
+.cell.circle::after {
+    width: 45px;
+    height: 45px;
+    background-color: white;
+}
+
+.board.circle .cell:not(.cross):not(.circle):hover::before {
+    background-color: $dark-blue-sheer2;
+}

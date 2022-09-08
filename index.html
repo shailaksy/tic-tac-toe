@@ -5,12 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/sass/main/styles.css">
-    <script src="/scripts/main.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Tic Tac Toe</title>
+    <script src="/scripts/main.js" defer></script>
 </head>
 <body>
     
-    <div class ="board" id="board">
+    <div class="title" id="title">
+        tic ● tac ● toe 
+    </div>
+
+    <div class="turn-display">
+        <span></span> <!-- your turn, cross -->
+    </div>
+
+    <div class="board" id="board">
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
@@ -22,9 +31,21 @@
         <div class="cell" data-cell></div>
     </div>
 
+    <div class="game-buttons">
+        <button id="previous">
+            <i class="fa fa-arrow-circle-left"></i>
+        </button>
+        <button id="next">
+            <i class="fa fa-arrow-circle-right"></i>
+        </button>
+        <button id="reset">
+            <i class="fa fa-rotate-left"></i>
+        </button>
+    </div>
+
     <div class="winner-message" id="winner-message">
-        <div data-winner-message-text></div>
-        <button id="restart-button">Restart</button>
+        <div data-winner-message-text></div> <!-- circle wins -->
+        <button id="restart-button">play again</button>
     </div>
 
 </body>

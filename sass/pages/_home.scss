@@ -1,3 +1,36 @@
+.title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: $dark-blue-color;
+}
+
+///
+
+.turn-display {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+}
+
+.turn-display span {
+    margin: .5em;
+    padding: 1.25em 1.5em;
+    border-radius: 15px;
+    background-color: $dark-blue-sheer2;
+    color: $dark-blue-color;
+    font-size: 1rem;
+}
+
+///
+
 .board {
     width: 100vw;
     height: 100vh;
@@ -108,4 +141,15 @@
 
 .board.circle .cell:not(.cross):not(.circle):hover::before {
     background-color: $dark-blue-sheer2;
+}
+
+///
+
+.game-buttons {
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    transform: translate(-50%);
+    text-align: center;
+    width: 50%;
 }

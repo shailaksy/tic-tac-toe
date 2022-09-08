@@ -1,0 +1,30 @@
+.game-buttons button {
+    background-color: transparent;
+    border: none;
+}
+
+.game-buttons i {
+    color: $dark-blue-color;
+    font-size: 2rem;
+    padding: 2vw;
+    cursor: pointer;
+}
+
+///
+
+.winner-message button {
+    font-size: 2rem;
+    color: $dark-blue-color;
+    background-color: $light-blue-color;
+    border: 1px solid $dark-blue-color;
+    margin: .5em;
+    padding: .25em .5em;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.winner-message button:hover {
+    background-color: $dark-blue-color;
+    color: $light-blue-color;
+    cursor: pointer;
+}

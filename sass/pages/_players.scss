@@ -1,0 +1,29 @@
+#player-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $dark-blue-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $light-blue-color;
+    font-size: 4rem;
+    z-index: 99;
+}
+
+#player-page input {
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid $light-blue-color;
+    font-size: 3rem;
+    color: $light-blue-color;
+    padding: 1%;
+    margin: 5% auto;
+    outline: none;
+    background-color: transparent;
+    text-align: center;
+    display: block;
+}

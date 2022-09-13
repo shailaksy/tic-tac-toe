@@ -10,25 +10,68 @@
     <script src="/scripts/main.js" defer></script>
 </head>
 <body>
-    
+
+    <!-- section for players and score -->
     <div class="title" id="title">
-        tic ● tac ● toe 
+        tic ● tac ● toe
     </div>
+
+    <div id="player-page">
+        <div id="player-one" class="player-name"> <!-- player one -->
+            <label for="input-player-one-name">
+                What's your name, player one?
+            </label>
+            <br>
+            <input type="text" 
+                data-input-player-one-name 
+                name="input-player-one-name" 
+                id="input-player-one-name"
+                maxlength="15" 
+                autocomplete="off">
+        </div>
+
+        <div id="player-two" class="player-name">
+            <label for="input-player-two-name">
+                How about you, player two?
+            </label>
+            <br>
+            <input type="text" 
+                data-input-player-two-name 
+                name="input-player-two-name" 
+                id="input-player-two-name" 
+                maxlength="15" 
+                autocomplete="off">
+        </div>
+    </div>
+
+    <div id="scoreboard">
+        <div id="player-one-scoreboard">
+            <p id="player-one-name"></p>
+            <p id="player-one-score"></p>
+        </div>
+        <div id="player-two-scoreboard">
+            <p id="player-two-name"></p>
+            <p id="player-two-score"></p>
+        </div>
+    </div>
+
 
     <div class="turn-display">
-        <span></span> <!-- your turn, cross -->
+        <span id="turn-display-text"></span> <!-- your turn, cross -->
     </div>
 
+    <!-- section for game board -->
+
     <div class="board" id="board">
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
+        <div class="cell" data-cell cellIndex="0"></div>
+        <div class="cell" data-cell cellIndex="1"></div>
+        <div class="cell" data-cell cellIndex="2"></div>
+        <div class="cell" data-cell cellIndex="3"></div>
+        <div class="cell" data-cell cellIndex="4"></div>
+        <div class="cell" data-cell cellIndex="5"></div>
+        <div class="cell" data-cell cellIndex="6"></div>
+        <div class="cell" data-cell cellIndex="7"></div>
+        <div class="cell" data-cell cellIndex="8"></div>
     </div>
 
     <div class="game-buttons">
@@ -43,9 +86,11 @@
         </button>
     </div>
 
+    <!-- outro -->
+
     <div class="winner-message" id="winner-message">
         <div data-winner-message-text></div> <!-- circle wins -->
-        <button id="restart-button">play again</button>
+        <button id="restart">play again</button>
     </div>
 
 </body>

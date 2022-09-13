@@ -11,6 +11,7 @@
     align-items: center;
     color: $light-blue-color;
     font-size: 5rem;
+    z-index: 99;
 }
 
 .winner-message.show {

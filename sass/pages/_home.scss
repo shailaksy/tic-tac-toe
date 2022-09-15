@@ -16,7 +16,7 @@
     display: none;
     justify-content: space-between;
     width: 30%;
-    top: 21%;
+    top: 20%;
     left: 35%;
     margin: auto;
     text-align: center;
@@ -70,6 +70,7 @@
     background-color: transparent;
     border: 1px solid $dark-blue-color;
     font-size: 10vmin;
+    color: $dark-blue-color;
     display: flex;
     justify-content: center;
     align-items: center;

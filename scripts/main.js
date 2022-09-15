@@ -19,7 +19,8 @@ playerOneNameInput.addEventListener('keyup', function(event) {
         if (playerOneNameInput.value) {
             playerOneName.style.display = "none";
             playerTwoName.style.display = "block";
-            localStorage.setItem('playerOne', playerOneNameInput.value);
+            localStorage.setItem('PlayerOne', playerOneNameInput.value);
+            localStorage.PlayerOneScore = 0;
         } else {
             alert("Enter a new player\'s name.");
         }
@@ -32,7 +33,8 @@ playerTwoNameInput.addEventListener('keyup', function(event) {
             if (playerTwoNameInput.value === playerOneNameInput.value) {
                 alert("Enter a new player\'s name.");
             } else {
-                localStorage.setItem('playerTwo', playerTwoNameInput.value); 
+                localStorage.setItem('PlayerTwo', playerTwoNameInput.value); 
+                localStorage.PlayerTwoScore = 0;
                 playerTwoName.style.display = "none";
                 scoreboard.style.display = "flex";
                 playerOneNameDisplay.textContent = playerOneNameInput.value;
@@ -56,6 +58,8 @@ const cells = document.querySelectorAll('.cell');
 
 const resetButton = document.querySelector('#reset');
 const restartButton = document.querySelector('#restart');
+const undoButton = document.querySelector('#undo');
+const redoButton = document.querySelector('#redo');
 
 const winnerDisplay = document.getElementById('winner-message');
 const winnerDisplayText = document.querySelector('[data-winner-message-text]');
@@ -76,28 +80,45 @@ let currentPlayer = "X";
 let currentPlayerName = '';
 let running = false;
 
+let moves = 0;
+
 function startGame() {
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
     resetButton.addEventListener("click", restartGame);
     running = true;
-}
+}   
 
 function cellClicked() {
     const cellIndex = this.getAttribute('cellIndex');
 
-    if (options[cellIndex] != "" || !running) {
+    if (options[cellIndex] != "" || !running) { 
         return;
-    } 
+    }
     
     updateCell(this, cellIndex);
     checkWinner();
-
 }
 
 function updateCell(cell, index) {
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
+    moves += 1;
+    console.log(moves);
 }
+
+
+/* hover
+
+    cell.addEventListener('mouseover', () => {
+        if (cell.textContent = '') {
+            if (moves % 2 === 0) {
+                cell.textContent = 'O';
+            } else {
+                cell.textContent = 'X';
+            }
+        }
+    })
+*/
 
 function changePlayer() {
     currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
@@ -126,6 +147,13 @@ function checkWinner() {
         winnerDisplay.style.display = 'flex';
         winnerDisplayText.textContent = `${currentPlayerName} wins`;
         running = false;
+        if (currentPlayer === 'X'){
+            localStorage.PlayerOneScore = Number(localStorage.PlayerOneScore) + 1;
+            playerOneScoreDisplay.textContent = localStorage.getItem('PlayerOneScore');
+        } else {
+            localStorage.PlayerTwoScore = Number(localStorage.PlayerTwoScore) + 1;
+            playerTwoScoreDisplay.textContent = localStorage.getItem('PlayerTwoScore');
+        }
     } else if (!options.includes('')) {
         winnerDisplay.style.display = 'flex';
         winnerDisplayText.textContent = `draw`;
@@ -147,3 +175,41 @@ restartButton.addEventListener("click", () => {
     restartGame();
     winnerDisplay.style.display = 'none';
 });
+
+
+///
+
+/*
+if() // if board has cells, allow undo
+
+undoButton.addEventListener('click', () => {
+
+})
+
+redoButton.addEventListener('click', () => {
+
+})
+
+function previousMove() {
+
+}
+
+function nextMove() {
+
+}
+*/
+
+const array = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+];
+
+const history = [
+    [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+    ],
+];
+

@@ -12,7 +12,7 @@ import {
   redoButton
 } from './buttons.js';
 
-const cells = document.querySelectorAll(".cell");
+const cells = document.querySelectorAll("[data-cell]");
 const winCombos = [
   [0, 1, 2],
   [3, 4, 5],
@@ -23,7 +23,7 @@ const winCombos = [
   [0, 4, 8],
   [2, 4, 6],
 ];
-export const winnerDisplay = document.getElementById("winner-message");
+export const winnerDisplay = document.querySelector("[data-winner-message]");
 const winnerDisplayText = document.querySelector("[data-winner-message-text]");
 
 let placeholders = ["", "", "", "", "", "", "", "", ""];
@@ -56,7 +56,7 @@ export function startGame() {
 
 function clickCell() {
   const cellIndex = this.getAttribute("cellIndex");
-  if (placeholders[cellIndex] != "" || !gameRunning) {
+  if (boardData.flat()[cellIndex] != "" || !gameRunning) {
     return;
   }
   updateCell(this, cellIndex);
@@ -67,12 +67,12 @@ function updateCell(cell, index) {
   placeholders[index] = currentPlayer;
   cell.textContent = currentPlayer;
   saveData(index);
+  
 }
 
 function changePlayer() {
   currentPlayer = currentPlayer === "X" ? "O" : "X";
-  currentPlayerName =
-    currentPlayer === "X" ? playerOneNameInput.value : playerTwoNameInput.value;
+  currentPlayerName = currentPlayer === "X" ? playerOneNameInput.value : playerTwoNameInput.value;
   turnDisplay.textContent = `${currentPlayerName}'s turn`;
 }
 
@@ -130,8 +130,8 @@ function restartGame() {
   gameRunning = true;
 }
 
-function displayBoard (array) {
-  array.flat().forEach((cell, i) => {
+function displayBoard(board) {
+  board.flat().forEach((cell, i) => {
     if (cell !== "") {
       cells[i].textContent = cell > 0 ? "X" : "O";
     } else {
@@ -151,12 +151,15 @@ function saveData(i) {
 }
 
 export function undoMove() {
+  console.log('moves',moves);
+  console.log('history',history);
   if (moves > 1) {
     moves--;
     displayBoard(history[moves]);
     redoButton.style.display = 'inline';
-  } else {
-    undoButton.style.display = 'none';
+    if (moves === 1) {
+      undoButton.style.display = 'none';
+    }
   }
 }
 
@@ -165,8 +168,8 @@ export function redoMove() {
     moves++;
     displayBoard(history[moves]);
     undoButton.style.display = 'inline';
-  } else {
-    redoButton.style.display = 'none';
+    if (moves === history.length - 1) {
+      redoButton.style.display = 'none';
+    }
   }
 }
-

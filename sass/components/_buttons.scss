@@ -1,4 +1,4 @@
-.game-buttons button {
+.game-buttons > button {
     background-color: transparent;
     border: none;
 }
@@ -10,9 +10,7 @@
     cursor: pointer;
 }
 
-///
-
-.winner-message button {
+.winner-message > button {
     font-size: 2rem;
     color: $dark-blue-color;
     background-color: $light-blue-color;

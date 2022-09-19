@@ -1,101 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/sass/main/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/sass/main/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Tic Tac Toe</title>
     <script src="/scripts/game.js" type="module"></script>
     <script src="/scripts/players.js" type="module"></script>
     <script src="/scripts/buttons.js" type="module"></script>
-</head>
-<body>
+  </head>
+  <body>
 
-    <!-- section for players and score -->
-    <div class="title" id="title">
-        tic ● tac ● toe
+    <div class="title" id="title">tic ● tac ● toe</div>
+
+    <div id="player-page" data-player-page>
+      <div id="player-one" class="player-name" data-player-one>
+
+        <label for="input-player-one-name">
+          What's your name, player one?
+        </label>
+        <br />
+        <input
+          type="text"
+          data-input-player-one-name
+          name="input-player-one-name"
+          id="input-player-one-name"
+          maxlength="15"
+          autocomplete="off"
+          autofocus
+        />
+      </div>
+
+      <div id="player-two" class="player-name" data-player-two>
+        <label for="input-player-two-name"> 
+            How about you, player two?
+        </label>
+        <br />
+        <input
+          type="text"
+          data-input-player-two-name
+          name="input-player-two-name"
+          id="input-player-two-name"
+          maxlength="15"
+          autocomplete="off"
+          autofocus
+        />
+      </div>
     </div>
 
-    <div id="player-page">
-        <div id="player-one" class="player-name"> <!-- player one -->
-            <label for="input-player-one-name">
-                What's your name, player one?
-            </label>
-            <br>
-            <input type="text" 
-                data-input-player-one-name 
-                name="input-player-one-name" 
-                id="input-player-one-name"
-                maxlength="15" 
-                autocomplete="off"
-                autofocus>
-        </div>
-
-        <div id="player-two" class="player-name">
-            <label for="input-player-two-name">
-                How about you, player two?
-            </label>
-            <br>
-            <input type="text" 
-                data-input-player-two-name 
-                name="input-player-two-name" 
-                id="input-player-two-name" 
-                maxlength="15" 
-                autocomplete="off"
-                autofocus>
-        </div>
+    <div id="scoreboard" data-scoreboard>
+      <div id="player-one-scoreboard">
+        <p id="player-one-name" data-player-one-name></p>
+        <p id="player-one-score" data-player-one-score></p>
+      </div>
+      <div id="player-two-scoreboard">
+        <p id="player-two-name" data-player-two-name></p>
+        <p id="player-two-score" data-player-two-score></p>
+      </div>
     </div>
-
-    <div id="scoreboard">
-        <div id="player-one-scoreboard">
-            <p id="player-one-name"></p>
-            <p id="player-one-score"></p>
-        </div>
-        <div id="player-two-scoreboard">
-            <p id="player-two-name"></p>
-            <p id="player-two-score"></p>
-        </div>
-    </div>
-
 
     <div class="turn-display">
-        <span id="turn-display-text"></span> <!-- your turn, cross -->
+      <span id="turn-display-text" data-turn-display-text></span>
     </div>
 
-    <!-- section for game board -->
-
     <div class="board" id="board">
-        <div class="cell" data-cell cellIndex="0"></div>
-        <div class="cell" data-cell cellIndex="1"></div>
-        <div class="cell" data-cell cellIndex="2"></div>
-        <div class="cell" data-cell cellIndex="3"></div>
-        <div class="cell" data-cell cellIndex="4"></div>
-        <div class="cell" data-cell cellIndex="5"></div>
-        <div class="cell" data-cell cellIndex="6"></div>
-        <div class="cell" data-cell cellIndex="7"></div>
-        <div class="cell" data-cell cellIndex="8"></div>
+      <div class="cell" data-cell cellIndex="0"></div>
+      <div class="cell" data-cell cellIndex="1"></div>
+      <div class="cell" data-cell cellIndex="2"></div>
+      <div class="cell" data-cell cellIndex="3"></div>
+      <div class="cell" data-cell cellIndex="4"></div>
+      <div class="cell" data-cell cellIndex="5"></div>
+      <div class="cell" data-cell cellIndex="6"></div>
+      <div class="cell" data-cell cellIndex="7"></div>
+      <div class="cell" data-cell cellIndex="8"></div>
     </div>
 
     <div class="game-buttons">
-        <button id="undo">
-            <i class="fa fa-arrow-circle-left"></i>
-        </button>
-        <button id="redo">
-            <i class="fa fa-arrow-circle-right"></i>
-        </button>
-        <button id="restart">
-            <i class="fa fa-rotate-left"></i>
-        </button>
+      <button id="undo">
+        <i class="fa fa-arrow-circle-left"></i>
+      </button>
+      <button id="redo">
+        <i class="fa fa-arrow-circle-right"></i>
+      </button>
+      <button id="restart">
+        <i class="fa fa-rotate-left"></i>
+      </button>
     </div>
 
-    <!-- outro -->
-
-    <div class="winner-message" id="winner-message">
-        <div data-winner-message-text></div> <!-- circle wins -->
-        <button id="back">back</button>
+    <div class="winner-message" id="winner-message" data-winner-message>
+      <div data-winner-message-text></div>
+      <button id="back">back</button>
     </div>
-
-</body>
+  </body>
 </html>

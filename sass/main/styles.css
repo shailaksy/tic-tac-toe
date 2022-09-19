@@ -6,7 +6,7 @@
 }
 
 body {
-  background: white;
+  background: radial-gradient(circle, rgb(255, 255, 255) 22%, rgb(194, 226, 242) 51%);
 }
 
 @-webkit-keyframes gradient-animation {

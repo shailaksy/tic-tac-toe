@@ -151,8 +151,6 @@ function saveData(i) {
 }
 
 export function undoMove() {
-  console.log('moves',moves);
-  console.log('history',history);
   if (moves > 1) {
     moves--;
     displayBoard(history[moves]);
